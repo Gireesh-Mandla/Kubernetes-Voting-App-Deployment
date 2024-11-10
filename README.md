@@ -1,17 +1,42 @@
-Kubernetes Voting App Deployment
+# Kubernetes Voting App Deployment
 
-In this project, I designed and deployed a scalable, containerized voting application using Kubernetes. The app consists of a frontend for users to vote, a Redis server for managing votes in real-time, and a backend database to store the voting results. The deployment was orchestrated on Kubernetes clusters to ensure high availability and resilience under load.
+This project demonstrates the deployment of a scalable voting application using Kubernetes. The app consists of multiple microservices, including a frontend for user voting, a Redis server for real-time vote caching, and a backend database to store voting results.
 
-Key Features:
-Multi-Tier Architecture: Separated frontend, backend, and database services, enabling scalable microservice deployment.
-Redis Caching: Used Redis for handling real-time voting data with low latency.
-Dockerized Microservices: Each component (frontend, backend, Redis, and database) was containerized using Docker for consistent deployment across environments.
-Kubernetes Orchestration: Utilized Kubernetes for managing, scaling, and load balancing the application, with services, deployments, and pods to ensure optimal resource utilization.
-Configurable Storage: Integrated persistent volume storage for database reliability and data retention during pod failures.
-Deployment Workflow:
-Containerization: Developed Docker images for each service and uploaded them to a container registry.
-Kubernetes Setup: Defined deployment YAML files for services, deployments, and pods to ensure a reproducible and stable setup.
-Scalability Testing: Tested scaling capabilities to handle traffic surges by dynamically adjusting the number of pods.
-Monitoring & Logging: Implemented monitoring using Prometheus and Grafana to track resource usage, response time, and error rates.
-Outcome:
-The Kubernetes Voting App provides a robust example of how containerization and orchestration can simplify complex application deployments while enhancing scalability and reliability. This project also improved my skills in microservices architecture, Docker, and Kubernetes management.
+## Architecture Overview
+
+The application follows a multi-tier microservices architecture:
+
+- **Frontend Service**: User interface for voting.
+- **Redis Server**: Caching layer for real-time votes.
+- **Backend API**: Processes votes and interacts with the database.
+- **Database**: Stores voting results for long-term data persistence.
+
+## Features
+
+- **Scalable Microservices**: Each component (frontend, Redis, backend, database) is containerized with Docker.
+- **Kubernetes Orchestration**: Services are managed by Kubernetes, ensuring high availability and easy scaling.
+- **Real-Time Caching with Redis**: Redis provides low-latency storage for incoming votes.
+- **Persistent Storage**: Persistent Volumes (PV) and Persistent Volume Claims (PVC) ensure data persistence for the database.
+
+## Project Workflow
+
+1. **Containerization**: Each service is built as a Docker container, stored in a container registry.
+2. **Kubernetes Configuration**: Defined with YAML files for deployments, services, and persistent storage.
+3. **Scalability**: The app is tested to scale efficiently by dynamically adjusting pod counts.
+4. **Monitoring**: Prometheus and Grafana track application health, resource usage, and performance.
+
+## Setup and Deployment
+
+### Prerequisites
+
+- Kubernetes Cluster
+- kubectl CLI
+- Docker
+- Helm (optional, for managing Kubernetes applications)
+
+### Deployment Steps
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/username/Kubernetes-Voting-App-Deployment.git
+   cd Kubernetes-Voting-App-Deployment
